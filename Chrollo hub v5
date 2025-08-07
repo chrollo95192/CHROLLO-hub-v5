@@ -1,0 +1,210 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Redz Hub Style GUI",
+   LoadingTitle = "Redz Hub Menu",
+   LoadingSubtitle = "by João Pedro",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil,
+      FileName = "RedzHubSettings"
+   },
+   Discord = {
+      Enabled = false,
+   },
+   KeySystem = false,
+   Theme = "Darker",
+   TabWidth = 160,
+   WindowWidth = 550,
+   WindowHeight = 380
+})
+
+-- Aba Principal
+local MainTab = Window:CreateTab("Main", 4483362458)
+
+MainTab:CreateToggle({
+   Name = "Auto Skills",
+   CurrentValue = true,
+   Callback = function(Value) end,
+})
+
+MainTab:CreateToggle({
+   Name = "Auto Farm",
+   CurrentValue = false,
+   Callback = function(Value) end,
+})
+
+MainTab:CreateToggle({
+   Name = "Auto Quest",
+   CurrentValue = false,
+   Callback = function(Value) end,
+})
+
+MainTab:CreateSlider({
+   Name = "WalkSpeed",
+   Range = {0, 300},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 86,
+   Callback = function(Value) end,
+})
+
+MainTab:CreateSlider({
+   Name = "JumpPower",
+   Range = {0, 300},
+   Increment = 1,
+   Suffix = "Power",
+   CurrentValue = 100,
+   Callback = function(Value) end,
+})
+
+MainTab:CreateDropdown({
+   Name = "Selected Weapon",
+   Options = {"Combat", "Sword", "Gun"},
+   CurrentOption = "Combat",
+   Callback = function(Value) end,
+})
+
+-- Aba de Skills
+local SkillsTab = Window:CreateTab("Skills", 4483362458)
+
+SkillsTab:CreateSection("S-Skills")
+for k, v in pairs({X=true, C=true, Z=true, F=false, V=true}) do
+   SkillsTab:CreateToggle({
+       Name = "Skill "..k,
+       CurrentValue = v,
+       Callback = function(Value) end,
+   })
+end
+
+SkillsTab:CreateSlider({
+   Name = "Tween Speed",
+   Range = {0, 1000},
+   Increment = 50,
+   CurrentValue = 300,
+   Callback = function(Value) end,
+})
+
+-- Aba de Farm
+local FarmTab = Window:CreateTab("Farm", 4483362458)
+
+FarmTab:CreateToggle({
+   Name = "Bring Mobs",
+   CurrentValue = true,
+   Callback = function(Value) end,
+})
+
+FarmTab:CreateDropdown({
+   Name = "Farm Tool",
+   Options = {"Sword", "Gun", "Blox Fruit"},
+   CurrentOption = "Sword",
+   Callback = function(Value) end,
+})
+
+FarmTab:CreateToggle({
+   Name = "Auto Click",
+   CurrentValue = true,
+   Callback = function(Value) end,
+})
+
+FarmTab:CreateSlider({
+   Name = "Bring Distance",
+   Range = {0, 1000},
+   Increment = 50,
+   CurrentValue = 400,
+   Callback = function(Value) end,
+})
+
+-- Aba de Misc
+local MiscTab = Window:CreateTab("Misc", 4483362458)
+
+MiscTab:CreateToggle({
+   Name = "Walk on Water",
+   CurrentValue = true,
+   Callback = function(Value) end,
+})
+
+MiscTab:CreateToggle({
+   Name = "Anti-AFK",
+   CurrentValue = true,
+   Callback = function(Value) end,
+})
+
+MiscTab:CreateToggle({
+   Name = "Fix Errors",
+   CurrentValue = true,
+   Callback = function(Value) end,
+})
+
+MiscTab:CreateToggle({
+   Name = "Auto Store Fruits",
+   CurrentValue = true,
+   Callback = function(Value) end,
+})
+
+MiscTab:CreateSlider({
+   Name = "WalkSpeed B",
+   Range = {0, 300},
+   Increment = 10,
+   CurrentValue = 300,
+   Callback = function(Value) end,
+})
+
+-- Aba ESP
+local EspTab = Window:CreateTab("ESP", 4483362458)
+
+EspTab:CreateToggle({
+   Name = "ESP Players",
+   CurrentValue = false,
+   Callback = function(Value) end,
+})
+
+EspTab:CreateToggle({
+   Name = "ESP Fruits",
+   CurrentValue = false,
+   Callback = function(Value) end,
+})
+
+EspTab:CreateSlider({
+   Name = "ESP Size",
+   Range = {1, 20},
+   Increment = 1,
+   CurrentValue = 10,
+   Callback = function(Value) end,
+})
+
+-- Aba de Raids
+local RaidTab = Window:CreateTab("Raids", 4483362458)
+
+RaidTab:CreateDropdown({
+   Name = "Raid Chip",
+   Options = {"Flame", "Ice", "Dark", "Light", "Quake"},
+   CurrentOption = "Flame",
+   Callback = function(Value) end,
+})
+
+RaidTab:CreateToggle({
+   Name = "Pirate Raid",
+   CurrentValue = true,
+   Callback = function(Value) end,
+})
+
+RaidTab:CreateToggle({
+   Name = "Race V4",
+   CurrentValue = true,
+   Callback = function(Value) end,
+})
+
+-- Notificação
+Rayfield:Notify({
+   Title = "Redz Hub",
+   Content = "Menu carregado com sucesso!",
+   Duration = 5,
+   Image = nil,
+   Actions = {
+       Ignore = {
+           Name = "Fechar",
+           Callback = function() end
+       }
+   }
+})
